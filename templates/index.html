@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluid Art Gallery</title>
+    <!-- Your existing CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Add this CSS to hide the items */
+        .gallery-item.hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="/" class="nav-brand">Art by Ana Ionesi</a>
+            <nav>
+                <a href="/" class="nav-link">Gallery</a>
+                <a href="/about" class="nav-link">About Me</a>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <main class="container">
+        <!-- Add this spacer element -->
+        <div style="height: 10px;"></div>
+
+        <div class="filter-container">
+            <input type="checkbox" id="availability-filter" name="availability-filter">
+            <label for="availability-filter">Show only available artwork</label>
+        </div>
+
+        <!-- Add this spacer element -->
+        <div style="height: 30px;"></div>
+
+        <div class="gallery-grid">
+            <!-- Item 1 - Marked as sold -->
+            <div class="gallery-item" data-status="sold">
+                <a href="{{ url_for('static', filename='images/pic1.jpeg') }}" data-fancybox="gallery" data-src="#details-1">
+                    <img src="{{ url_for('static', filename='images/pic1.jpeg') }}" alt="Ethereal Bloom">
+                </a>
+                <div class="item-info"><p class="item-title">Ethereal Bloom</p></div>
+                <div style="display:none;" id="details-1">
+                    <div class="fancybox-content-layout">
+                        <div class="fancybox-image-container"><img src="{{ url_for('static', filename='images/pic1.jpeg') }}" alt="Ethereal Bloom"></div>
+                        <div class="fancybox-info-container">
+                            <h2>Ethereal Bloom</h2>
+                            <p>A mesmerizing pour painting that captures the delicate dance of pigments on canvas, inspired by a flower blooming in a dream.</p>
+                            <h3>Artwork Details</h3>
+                            <ul>
+                                <li><strong>Dimensions:</strong> 120cm x 90cm</li>
+                                <li><strong>Medium:</strong> Mixed Media on professional-grade canvas.</li>
+                                <li><strong>Support:</strong> Gallery-wrapped on a deep-edge, handmade wooden stretcher frame. Ready to hang.</li>
+                                <li><strong>Finish:</strong> Sealed with two coats of satin varnish for protection and durability.</li>
+                                <li><strong>Framing:</strong> Unframed.</li>
+                                <li><strong>Year:</strong> 2024</li>
+                            </ul>
+                            <p class="availability" style="color: #888;">Sold</p>
+                            <a href="mailto:ana.ionesi@gmail.com?subject=Inquiry about Ethereal Bloom" class="contact-button">Inquiry about similar artwork</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 - Marked as sold -->
+            <div class="gallery-item" data-status="sold">
+                 <a href="{{ url_for('static', filename='images/pic3.jpg') }}" data-fancybox="gallery" data-src="#details-2">
+                    <img src="{{ url_for('static', filename='images/pic3.jpg') }}" alt="Cosmic Explosion">
+                </a>
+                <div class="item-info"><p class="item-title">Cosmic Explosion</p></div>
+                <div style="display:none;" id="details-2">
+                     <div class="fancybox-content-layout">
+                        <div class="fancybox-image-container"><img src="{{ url_for('static', filename='images/pic3.jpg') }}" alt="Cosmic Explosion"></div>
+                        <div class="fancybox-info-container">
+                            <h2>Cosmic Explosion</h2>
+                            <p>A cosmic explosion of deep blues and vibrant aqua unfolds across the canvas, laced with golden veins and populated by dark, eye-like cells and distant white stars.</p>
+                             <h3>Artwork Details</h3>
+                            <ul>
+                                <li><strong>Dimensions:</strong> 120cm x 90cm</li>
+                                <li><strong>Medium:</strong> Mixed Media on professional-grade canvas.</li>
+                                <li><strong>Support:</strong> Gallery-wrapped on a deep-edge, handmade wooden stretcher frame. Ready to hang.</li>
+                                <li><strong>Finish:</strong> Sealed with two coats of satin varnish for protection and durability.</li>
+                                <li><strong>Framing:</strong> Unframed.</li>
+                                <li><strong>Year:</strong> 2024</li>
+                            </ul>
+                            <p class="availability" style="color: #888;">Sold</p>
+                            <a href="mailto:ana.ionesi@gmail.com?subject=Inquiry about Cosmic Explosion" class="contact-button">Inquiry about similar artwork</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 - Marked as available -->
+            <div class="gallery-item" data-status="available">
+                 <a href="{{ url_for('static', filename='images/pic5.png') }}" data-fancybox="gallery" data-src="#details-3">
+                    <img src="{{ url_for('static', filename='images/pic5.png') }}" alt="Avalanșa">
+                </a>
+                <div class="item-info"><p class="item-title">Avalanșa</p></div>
+                <div style="display:none;" id="details-3">
+                     <div class="fancybox-content-layout">
+                        <div class="fancybox-image-container"><img src="{{ url_for('static', filename='images/pic5.png') }}" alt="Avalanșa"></div>
+                        <div class="fancybox-info-container">
+                            <h2>Avalanșa</h2>
+                            <p>A powerful avalanche of thick, churning snow cascades down a rugged mountainside, mixing with deep blue glacial ice and streaks of red earth in a chaotic and forceful torrent.</p>
+                             <h3>Artwork Details</h3>
+                            <ul>
+                                <li><strong>Dimensions:</strong> 160cm x 90cm</li>
+                                <li><strong>Medium:</strong> Mixed Media on professional-grade canvas.</li>
+                                <li><strong>Support:</strong> Gallery-wrapped on a deep-edge, handmade wooden stretcher frame. Ready to hang.</li>
+                                <li><strong>Finish:</strong> Sealed with two coats of satin varnish for protection and durability.</li>
+                                <li><strong>Framing:</strong> Unframed.</li>
+                                <li><strong>Year:</strong> 2023</li>
+                            </ul>
+                            <p class="availability">Available for Purchase</p>
+                            <a href="mailto:ana.ionesi@gmail.com?subject=Inquiry about Avalanșa" class="contact-button">Contact for Info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 4 - Marked as available -->
+            <div class="gallery-item" data-status="available">
+                <a href="{{ url_for('static', filename='images/pic4.jpg') }}" data-fancybox="gallery" data-src="#details-4">
+                    <img src="{{ url_for('static', filename='images/pic4.jpg') }}" alt="Crimson Nebula">
+                </a>
+                <div class="item-info"><p class="item-title">Crimson Nebula</p></div>
+                <div style="display:none;" id="details-4">
+                     <div class="fancybox-content-layout">
+                        <div class="fancybox-image-container"><img src="{{ url_for('static', filename='images/pic4.jpg') }}" alt="Crimson Nebula"></div>
+                        <div class="fancybox-info-container">
+                            <h2>Crimson Nebula</h2>
+                            <p>In this dramatic fluid art piece, a powerful explosion of red and white cellular structures erupts from a dark void, pushing aside vibrant blue nebulous clouds and scattering white-hot particles into the vastness of space.</p>
+                             <h3>Artwork Details</h3>
+                            <ul>
+                                <li><strong>Dimensions:</strong> 90cm x 160cm</li>
+                                <li><strong>Medium:</strong> Mixed Media on professional-grade canvas.</li>
+                                <li><strong>Support:</strong> Gallery-wrapped on a deep-edge, handmade wooden stretcher frame. Ready to hang.</li>
+                                <li><strong>Finish:</strong> Sealed with two coats of satin varnish for protection and durability.</li>
+                                <li><strong>Framing:</strong> Unframed.</li>
+                                <li><strong>Year:</strong> 2023</li>
+                            </ul>
+                            <p class="availability">Available for Purchase</p>
+                            <a href="mailto:ana.ionesi@gmail.com?subject=Inquiry about Crimson Nebula" class="contact-button">Contact for Info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Item 5 - Marked as sold -->
+            <div class="gallery-item" data-status="sold">
+                 <a href="{{ url_for('static', filename='images/pic9.png') }}" data-fancybox="gallery" data-src="#details-5">
+                    <img src="{{ url_for('static', filename='images/pic9.png') }}" alt="The Path">
+                </a>
+                <div class="item-info"><p class="item-title">The Path</p></div>
+                <div style="display:none;" id="details-5">
+                     <div class="fancybox-content-layout">
+                        <div class="fancybox-image-container"><img src="{{ url_for('static', filename='images/pic9.png') }}" alt="The Path"></div>
+                        <div class="fancybox-info-container">
+                            <h2>The Path</h2>
+                            <p>Following a delicate pink thread, "The Path" cuts a turbulent channel of frothy white through a shifting landscape of cool grays and deep blues, charting a course through the beautiful chaos.</p>
+                             <h3>Artwork Details</h3>
+                            <ul>
+                                <li><strong>Dimensions:</strong> 120cm x 90cm</li>
+                                <li><strong>Medium:</strong> Mixed Media on professional-grade canvas.</li>
+                                <li><strong>Support:</strong> Gallery-wrapped on a deep-edge, handmade wooden stretcher frame. Ready to hang.</li>
+                                <li><strong>Finish:</strong> Sealed with two coats of satin varnish for protection and durability.</li>
+                                <li><strong>Framing:</strong> Unframed.</li>
+                                <li><strong>Year:</strong> 2023</li>
+                            </ul>
+                            <p class="availability" style="color: #888;">Sold</p>
+                            <a href="mailto:ana.ionesi@gmail.com?subject=Inquiry about The Path" class="contact-button">Inquiry about similar artwork</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- Item 6 - Marked as available -->
+            <div class="gallery-item" data-status="available">
+                 <a href="{{ url_for('static', filename='images/pic6.jpeg') }}" data-fancybox="gallery" data-src="#details-6">
+                    <img src="{{ url_for('static', filename='images/pic6.jpeg') }}" alt="Dusty Rose">
+                </a>
+                <div class="item-info"><p class="item-title">Dusty Rose</p></div>
+                <div style="display:none;" id="details-6">
+                     <div class="fancybox-content-layout">
+                        <div class="fancybox-image-container"><img src="{{ url_for('static', filename='images/pic6.jpeg') }}" alt="Dusty Rose"></div>
+                        <div class="fancybox-info-container">
+                            <h2>Dusty Rose</h2>
+                            <p>A turbulent river of deep reds and dusty rose churns with frothy white rapids and dark cellular pools, creating a dynamic and organic abstract landscape.</p>
+                             <h3>Artwork Details</h3>
+                            <ul>
+                                <li><strong>Dimensions:</strong> 90cm x 90cm</li>
+                                <li><strong>Medium:</strong> Mixed Media on professional-grade canvas.</li>
+                                <li><strong>Support:</strong> Gallery-wrapped on a deep-edge, handmade wooden stretcher frame. Ready to hang.</li>
+                                <li><strong>Finish:</strong> Sealed with two coats of satin varnish for protection and durability.</li>
+                                <li><strong>Framing:</strong> Unframed.</li>
+                                <li><strong>Year:</strong> 2023</li>
+                            </ul>
+                            <p class="availability">Available for Purchase</p>
+                            <a href="mailto:ana.ionesi@gmail.com?subject=Inquiry about Dusty Rose" class="contact-button">Contact for Info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 7 - Marked as available -->
+            <div class="gallery-item" data-status="available">
+                 <a href="{{ url_for('static', filename='images/mov.jpeg') }}" data-fancybox="gallery" data-src="#details-7">
+                    <img src="{{ url_for('static', filename='images/mov.jpeg') }}" alt="The Emperor">
+                </a>
+                <div class="item-info"><p class="item-title">The Emperor</p></div>
+                <div style="display:none;" id="details-7">
+                     <div class="fancybox-content-layout">
+                        <div class="fancybox-image-container"><img src="{{ url_for('static', filename='images/mov.jpeg') }}" alt="The Emperor"></div>
+                        <div class="fancybox-info-container">
+                            <h2>The Emperor</h2>
+                            <p>A commanding fluid composition where deep purples and midnight blues flow with regal authority, crowned by intricate cellular patterns that speak of ancient power and cosmic dominion.</p>
+                             <h3>Artwork Details</h3>
+                            <ul>
+                                <li><strong>Dimensions:</strong> 160cm x 90cm</li>
+                                <li><strong>Medium:</strong> Mixed Media on professional-grade canvas.</li>
+                                <li><strong>Support:</strong> Gallery-wrapped on a deep-edge, handmade wooden stretcher frame. Ready to hang.</li>
+                                <li><strong>Finish:</strong> Sealed with two coats of satin varnish for protection and durability.</li>
+                                <li><strong>Framing:</strong> Unframed.</li>
+                                <li><strong>Year:</strong> 2023</li>
+                            </ul>
+                            <p class="availability">Available for Purchase</p>
+                            <a href="mailto:ana.ionesi@gmail.com?subject=Inquiry about The Emperor" class="contact-button">Contact for Info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 8 - Marked as available -->
+            <div class="gallery-item" data-status="available">
+                 <a href="{{ url_for('static', filename='images/blue.jpeg') }}" data-fancybox="gallery" data-src="#details-8">
+                    <img src="{{ url_for('static', filename='images/blue.jpeg') }}" alt="Everything is Interconnected">
+                </a>
+                <div class="item-info"><p class="item-title">Everything is Interconnected</p></div>
+                <div style="display:none;" id="details-8">
+                     <div class="fancybox-content-layout">
+                        <div class="fancybox-image-container"><img src="{{ url_for('static', filename='images/blue.jpeg') }}" alt="Everything is Interconnected"></div>
+                        <div class="fancybox-info-container">
+                            <h2>Everything is Interconnected</h2>
+                            <p>A vibrant oceanic meditation where intricate cellular networks and flowing blues reveal the hidden web that binds all existence, each bubble and vein a reminder of our universal connection.</p>
+                             <h3>Artwork Details</h3>
+                            <ul>
+                                <li><strong>Dimensions:</strong> 160cm x 90cm</li>
+                                <li><strong>Medium:</strong> Mixed Media on professional-grade canvas.</li>
+                                <li><strong>Support:</strong> Gallery-wrapped on a deep-edge, handmade wooden stretcher frame. Ready to hang.</li>
+                                <li><strong>Finish:</strong> Sealed with two coats of satin varnish for protection and durability.</li>
+                                <li><strong>Framing:</strong> Unframed.</li>
+                                <li><strong>Year:</strong> 2024</li>
+                            </ul>
+                            <p class="availability">Available for Purchase</p>
+                            <a href="mailto:ana.ionesi@gmail.com?subject=Inquiry about Everything is Interconnected" class="contact-button">Contact for Info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Ana Ionesi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+<!-- Fancybox JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+      // Initialize Fancybox
+      Fancybox.bind("[data-fancybox]", {
+        Toolbar: {
+          display: {
+            left: ["infobar"],
+            middle: [],
+            right: ["thumbs", "zoom", "close"],
+          },
+        },
+      });
+
+      // Filter logic
+      document.addEventListener('DOMContentLoaded', () => {
+        const filterCheckbox = document.getElementById('availability-filter');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterCheckbox.addEventListener('change', function() {
+          const isChecked = this.checked;
+
+          galleryItems.forEach(item => {
+            const status = item.getAttribute('data-status');
+
+            if (isChecked) {
+              if (status === 'sold') {
+                item.classList.add('hide');
+              } else {
+                item.classList.remove('hide');
+              }
+            } else {
+              item.classList.remove('hide');
+            }
+          });
+        });
+      });
+    </script>
